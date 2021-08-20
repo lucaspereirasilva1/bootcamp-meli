@@ -5,10 +5,8 @@ import java.util.Scanner;
 public class ExercicioModuloCinco {
 
     public static void main(String[] args) {
-
-        //exercicioTres();
+        exercicioTres();
         exercicioQuatro();
-
     }
 
     //Exercicio 1
