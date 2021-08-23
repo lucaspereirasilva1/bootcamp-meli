@@ -1,45 +1,9 @@
-package com.company;
+package com.introducaojava;
 
 import java.util.Scanner;
 
-public class ExercicioModuloCinco {
-
+public class ExercicioQuatro {
     public static void main(String[] args) {
-        exercicioTres();
-        exercicioQuatro();
-    }
-
-    //Exercicio 1
-    String apelido = "Gomez";
-    int idade = 35;
-    boolean verdadeiroFalso = false;
-    double saldo = 45857.90;
-    String nome = "Julián";
-
-    //Exercicio 2
-    String nomeum;
-    int idadeum;
-    double saldoum;
-    String apellido;
-    String direcao;
-    boolean carteiraDeMotorista;
-    double alturaDaPessoa;
-    int quantidadeDeFilhos;
-
-    public static void exercicioTres() {
-        int precoDia = 2;
-        int total = 0;
-        int dia = 0;
-
-        System.out.print("Digite o numero de dias:");
-        Scanner teclado = new Scanner(System.in);
-        dia = teclado.nextInt();
-        total = precoDia * dia;
-
-        System.out.println(dia + " dias de campanha custam: " + total);
-    }
-
-    public static void exercicioQuatro() {
         double impostoUm   = 2.45/100;
         double impostoDois = 15.0/100;
         double impostoTres = 3.0/100;
@@ -62,15 +26,5 @@ public class ExercicioModuloCinco {
         valorTotal = impostoUm + impostoDois + impostoTres + valorBruto;
 
         System.out.println("Valor final do premio e: " + valorTotal);
-
-
-
-
-
-
-
     }
-
-
-
 }
