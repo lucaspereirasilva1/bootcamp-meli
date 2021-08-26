@@ -1,26 +1,12 @@
 package com.praticaintegradadakar;
 
-public class Moto {
+public class Moto extends Veiculo{
 
-    private Veiculo veiculo = new Veiculo();
-
-    public Moto() {
-        veiculo.setPeso(300);
-        veiculo.setRodas(2);
+    public Moto(int velocidade, int aceleracao, int anguloVirada, String placa) {
+        super(velocidade, aceleracao, anguloVirada, placa);
+        super.setPeso(300);
+        super.setRodas(2);
+        super.setTipoVeiculo("moto");
     }
 
-    public Veiculo getVeiculo() {
-        return veiculo;
-    }
-
-    public void setVeiculo(Veiculo veiculo) {
-        this.veiculo = veiculo;
-    }
-
-    @Override
-    public String toString() {
-        return "Moto{" +
-                "veiculo=" + veiculo +
-                '}';
-    }
 }

@@ -14,6 +14,7 @@ public class Corrida {
     private SocorristaCarro socorristaCarro = new SocorristaCarro();
 
 
+
     public Corrida(SocorristaMoto socorristaMoto, SocorristaCarro socorristaCarro) {
         this.socorristaMoto = socorristaMoto;
         this.socorristaCarro = socorristaCarro;
@@ -31,29 +32,47 @@ public class Corrida {
     }
 
     public void adicionarCarro(int velocidade, int aceleracao, int anguloVirada, String placa){
-        Carro carro = new Carro();
-        Veiculo veiculo = new Veiculo();
-        carro.getVeiculo().setVelocidade(velocidade);
-        carro.getVeiculo().setAceleracao(aceleracao);
-        carro.getVeiculo().setAnguloVirada(anguloVirada);
-        carro.getVeiculo().setPlaca(placa);
-        veiculo.setCarro(carro);
-        veiculos.add(veiculo);
-        this.qtdeVeiculo++;
+        Carro carro = new Carro(velocidade, aceleracao, anguloVirada, placa);
+        veiculos.add(carro);
+        qtdeVeiculo++;
         System.out.println("Carro adicionado " + carro);
     }
 
     public void adicionarMoto(int velocidade, int aceleracao, int anguloVirada, String placa){
-        Moto moto = new Moto();
-        Veiculo veiculo = new Veiculo();
-        moto.getVeiculo().setVelocidade(velocidade);
-        moto.getVeiculo().setAceleracao(aceleracao);
-        moto.getVeiculo().setAnguloVirada(anguloVirada);
-        moto.getVeiculo().setPlaca(placa);
-        veiculo.setMoto(moto);
-        veiculos.add(veiculo);
+        Moto moto = new Moto(velocidade, aceleracao, anguloVirada, placa);
+        veiculos.add(moto);
         this.qtdeVeiculo++;
         System.out.println("Moto adicionada " + moto);
+    }
+    public void removerVeiculo(Veiculo veiculo){
+        veiculos.remove(veiculo);
+        qtdeVeiculo--;
+    }
+    public void vencedor(List<Veiculo> veiculos){
+        double valorMax = 0;
+        int posicao = 0;
+        for (int i = 0; i < veiculos.size(); i++){
+            double valor = (veiculos.get(i).getVelocidade() * (veiculos.get(i).getAceleracao() * 0.5)) /
+                    (veiculos.get(i).getAnguloVirada() * (veiculos.get(i).getPeso() -
+                            veiculos.get(i).getRodas() * 100));
+
+            if (valorMax < valor){
+                valorMax = valor;
+                posicao = i;
+            }
+
+        }
+        System.out.println("O vencedor e "+ veiculos.get(posicao).toString());
+    }
+
+    public void removerVeiculoPlaca(String placa){
+        for (int i = 0; i < veiculos.size(); i++) {
+            if (veiculos.get(i).getPlaca().equals(placa)){
+                veiculos.remove(veiculos.get(i));
+                System.out.println("Veiculo removido " + veiculos.get(i));
+            }
+            qtdeVeiculo--;
+        }
     }
 
     public int getDistancia() {
