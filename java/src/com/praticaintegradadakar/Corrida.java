@@ -12,6 +12,8 @@ public class Corrida {
     private List<Veiculo> veiculos = new ArrayList<>();
     private SocorristaMoto socorristaMoto = new SocorristaMoto();
     private SocorristaCarro socorristaCarro = new SocorristaCarro();
+    private Carro carro;
+    private Moto moto;
 
 
 
@@ -32,14 +34,14 @@ public class Corrida {
     }
 
     public void adicionarCarro(int velocidade, int aceleracao, int anguloVirada, String placa){
-        Carro carro = new Carro(velocidade, aceleracao, anguloVirada, placa);
+        this.carro = new Carro(velocidade, aceleracao, anguloVirada, placa);
         veiculos.add(carro);
         qtdeVeiculo++;
         System.out.println("Carro adicionado " + carro);
     }
 
     public void adicionarMoto(int velocidade, int aceleracao, int anguloVirada, String placa){
-        Moto moto = new Moto(velocidade, aceleracao, anguloVirada, placa);
+        this.moto = new Moto(velocidade, aceleracao, anguloVirada, placa);
         veiculos.add(moto);
         this.qtdeVeiculo++;
         System.out.println("Moto adicionada " + moto);
@@ -129,6 +131,14 @@ public class Corrida {
 
     public void setSocorristaCarro(SocorristaCarro socorristaCarro) {
         this.socorristaCarro = socorristaCarro;
+    }
+
+    public Carro getCarro() {
+        return this.carro;
+    }
+
+    public Moto getMoto() {
+        return this.moto;
     }
 
     @Override
