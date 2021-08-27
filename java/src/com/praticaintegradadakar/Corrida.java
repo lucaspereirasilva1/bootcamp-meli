@@ -5,10 +5,10 @@ import java.util.List;
 
 public class Corrida {
 
-    private int distancia = 0;
-    private int premio = 0;
-    private String nome = "";
-    private int qtdeVeiculo = 0;
+    private int distancia;
+    private int premio;
+    private String nome;
+    private int qtdeVeiculo;
     private List<Veiculo> veiculos = new ArrayList<>();
     private SocorristaMoto socorristaMoto = new SocorristaMoto();
     private SocorristaCarro socorristaCarro = new SocorristaCarro();
@@ -35,20 +35,20 @@ public class Corrida {
 
     public void adicionarCarro(int velocidade, int aceleracao, int anguloVirada, String placa){
         this.carro = new Carro(velocidade, aceleracao, anguloVirada, placa);
-        veiculos.add(carro);
-        qtdeVeiculo++;
-        System.out.println("Carro adicionado " + carro);
+        this.veiculos.add(this.carro);
+        this.qtdeVeiculo++;
+        System.out.println("Carro adicionado " + this.carro);
     }
 
     public void adicionarMoto(int velocidade, int aceleracao, int anguloVirada, String placa){
         this.moto = new Moto(velocidade, aceleracao, anguloVirada, placa);
-        veiculos.add(moto);
+        this.veiculos.add(this.moto);
         this.qtdeVeiculo++;
-        System.out.println("Moto adicionada " + moto);
+        System.out.println("Moto adicionada " + this.moto);
     }
     public void removerVeiculo(Veiculo veiculo){
-        veiculos.remove(veiculo);
-        qtdeVeiculo--;
+        this.veiculos.remove(veiculo);
+        this.qtdeVeiculo--;
     }
     public void vencedor(List<Veiculo> veiculos){
         double valorMax = 0;
@@ -68,12 +68,12 @@ public class Corrida {
     }
 
     public void removerVeiculoPlaca(String placa){
-        for (int i = 0; i < veiculos.size(); i++) {
-            if (veiculos.get(i).getPlaca().equals(placa)){
-                veiculos.remove(veiculos.get(i));
-                System.out.println("Veiculo removido " + veiculos.get(i));
+        for (int i = 0; i < this.veiculos.size(); i++) {
+            if (this.veiculos.get(i).getPlaca().equals(placa)){
+                System.out.println("Veiculo removido " + this.veiculos.get(i));
+                this.veiculos.remove(this.veiculos.get(i));
             }
-            qtdeVeiculo--;
+            this.qtdeVeiculo--;
         }
     }
 
@@ -134,11 +134,19 @@ public class Corrida {
     }
 
     public Carro getCarro() {
-        return this.carro;
+        return carro;
+    }
+
+    public void setCarro(Carro carro) {
+        this.carro = carro;
     }
 
     public Moto getMoto() {
-        return this.moto;
+        return moto;
+    }
+
+    public void setMoto(Moto moto) {
+        this.moto = moto;
     }
 
     @Override

@@ -17,23 +17,23 @@ public class Main {
         System.out.println("-----------------------------------------------\n");
 
         //Removendo veiculos
-//        corrida.removerVeiculo(corrida.getVeiculos().get(0));
-//        System.out.println(corrida.toString());
-//
-//        System.out.println("-----------------------------------------------\n");
+        corrida.removerVeiculo(corrida.getVeiculos().get(0));
+        System.out.println(corrida.toString());
+
+        System.out.println("-----------------------------------------------\n");
 
         //Removendo veiculo com placa
-//        corrida.removerVeiculoPlaca("dbc");
-//        System.out.println(corrida.toString());
+        corrida.removerVeiculoPlaca("dbc");
+        System.out.println(corrida.toString());
 
         //Definindo vencedor da corrida
-        corrida.vencedor(corrida.getVeiculos());
+//        corrida.vencedor(corrida.getVeiculos());
 
         //Socorrendo carro
-        corrida.getSocorristaCarro().socorrer(corrida.getCarro());
+//        corrida.getSocorristaCarro().socorrer(corrida.getCarro());
 
         //Socorrendo moto
-        corrida.getSocorristaMoto().socorrer(corrida.getMoto());
+//        corrida.getSocorristaMoto().socorrer(corrida.getMoto());
 
     }
 }
