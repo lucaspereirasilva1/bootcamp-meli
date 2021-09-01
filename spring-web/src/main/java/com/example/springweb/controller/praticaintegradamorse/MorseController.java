@@ -1,4 +1,4 @@
-package com.example.springweb.controller;
+package com.example.springweb.controller.praticaintegradamorse;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
