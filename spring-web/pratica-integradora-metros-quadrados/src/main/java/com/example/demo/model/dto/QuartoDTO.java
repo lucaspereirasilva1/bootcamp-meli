@@ -1,4 +1,4 @@
-package model.dto;
+package com.example.demo.model.dto;
 
 import lombok.Data;
 
@@ -9,5 +9,7 @@ public class QuartoDTO {
     private double largura;
     private double comprimento;
     //ImovelDto imovelDto;
+
+
 
 }

@@ -1,4 +1,4 @@
-package model.entity;
+package com.example.demo.model.entity;
 
 import lombok.Data;
 
@@ -14,5 +14,5 @@ public class Quarto {
         this.largura = largura;
         this.comprimento = comprimento;
     }
-
+    //ImovelDto imovelDto;
 }

@@ -1,6 +1,6 @@
-package model.service;
+package com.example.demo.model.service;
 
-import model.entity.Quarto;
+import com.example.demo.model.entity.Quarto;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
