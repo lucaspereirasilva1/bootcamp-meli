@@ -16,12 +16,12 @@ public class Medico {
     private int numeroRegistro;
     private String especialidade;
 
-    public Medico(int cpf, String nome, String sobreNome, String especialidade) {
+    public Medico(int numeroRegistro, int cpf, String nome, String sobreNome, String especialidade) {
         this.cpf = cpf;
         this.nome = nome;
         this.sobreNome = sobreNome;
         this.especialidade = especialidade;
-        this.numeroRegistro++;
+        this.numeroRegistro = numeroRegistro;
     }
 
 }

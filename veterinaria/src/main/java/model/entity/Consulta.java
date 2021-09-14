@@ -20,7 +20,7 @@ public class Consulta {
     @Setter(AccessLevel.NONE)
     private int id;
 
-    public Consulta(LocalDateTime dataHora, String motivo, String diagnostico, String tratamento, Medico medico
+    public Consulta(int id, LocalDateTime dataHora, String motivo, String diagnostico, String tratamento, Medico medico
             , Paciente paciente) {
         this.dataHora = dataHora;
         this.motivo = motivo;
@@ -28,6 +28,6 @@ public class Consulta {
         this.tratamento = tratamento;
         this.medico = medico;
         this.paciente = paciente;
-        this.id++;
+        this.id = id;
     }
 }

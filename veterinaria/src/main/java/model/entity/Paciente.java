@@ -21,7 +21,7 @@ public class Paciente {
     private Proprietario proprietario;
     private String tipoAnimal;
 
-    public Paciente(String especie, String raca, String cor, LocalDate dataNascimento, String nome
+    public Paciente(int id, String especie, String raca, String cor, LocalDate dataNascimento, String nome
             , Proprietario proprietario, String tipoAnimal) {
         this.especie = especie;
         this.raca = raca;
@@ -30,7 +30,6 @@ public class Paciente {
         this.nome = nome;
         this.proprietario = proprietario;
         this.tipoAnimal = tipoAnimal;
-        this.id++;
+        this.id = id;
     }
-
 }

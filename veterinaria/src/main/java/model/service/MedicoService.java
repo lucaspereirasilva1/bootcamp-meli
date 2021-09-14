@@ -21,7 +21,7 @@ public class MedicoService {
     }
 
     public void cadastrarMedicos(int cpf, String nome, String sobreNome, String especialidade) {
-        medico = new Medico(cpf, nome, sobreNome, especialidade);
+        medico = new Medico(listaMedico.size(), cpf, nome, sobreNome, especialidade);
     }
 
     public String exibirMedico() {

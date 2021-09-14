@@ -26,7 +26,7 @@ public class PacienteService {
 
     public void cadastarPaciente(String especie, String raca, String cor, LocalDate dataNascimento
             , String nome, Proprietario proprietario, String tipoAnimal) {
-        paciente = new Paciente(especie, raca, cor, dataNascimento, nome, proprietario, tipoAnimal);
+        paciente = new Paciente(listaPaciente.size(), especie, raca, cor, dataNascimento, nome, proprietario, tipoAnimal);
     }
 
 //    public List<Paciente> criarListaPaciente() {

@@ -11,14 +11,12 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class ConsultaService {
 
     private Consulta consulta;
-    private MedicoService medicoService = new MedicoService();
     private List<Consulta> listaConsultas = new ArrayList<>();
-    private LocalDateTime dataHora = LocalDateTime.now();
-    private LocalDate dataNascimento = LocalDate.now();
 
     public Consulta getConsulta() {
         return consulta;
@@ -30,7 +28,7 @@ public class ConsultaService {
 
     public void cadastrarConsulta(LocalDateTime dataHora, String motivo, String diagnostico, String tratamento
             , Medico medico, Paciente paciente) {
-        consulta = new Consulta(dataHora, motivo, diagnostico, tratamento, medico, paciente);
+        consulta = new Consulta(listaConsultas.size(), dataHora, motivo, diagnostico, tratamento, medico, paciente);
     }
 
     public void criarListaConsulta(Consulta consulta) {
@@ -57,14 +55,22 @@ public class ConsultaService {
 
 
     public List<Consulta> listarConsultasPorPacientes(Paciente paciente) {
-        List<Consulta> retornolistaConsulta = new ArrayList<>();
-        for (Consulta c : this.getListaConsultas()) {
-            if (c.getPaciente().getEspecie().equals(paciente.getEspecie())) {
-//                System.out.println(c.toString());
-                retornolistaConsulta.add(c);
-            }
-        }
+        List<Consulta> retornoListaConsultas = new ArrayList<>();
+        retornoListaConsultas = getListaConsultas().stream()
+                .filter(p -> p.getPaciente().getEspecie().equals(paciente.getEspecie()))
+                .collect(Collectors.toList());
+        retornoListaConsultas.sort((Consulta c1, Consulta c2) -> c1.getDataHora().compareTo(c2.getDataHora()));
+        return retornoListaConsultas;
+    }
 
-        return retornolistaConsulta;
+    public List<Consulta> listarConsultasPorDia(LocalDate dia) {
+        List<Consulta> retornoListaConsultas = new ArrayList<>();
+        retornoListaConsultas = getListaConsultas().stream()
+                .filter(c -> c.getDataHora().getDayOfMonth() == dia.getDayOfMonth())
+                .filter(c -> c.getDataHora().getMonth() == dia.getMonth())
+                .filter(c -> c.getDataHora().getYear() == dia.getYear())
+                .collect(Collectors.toList());
+        retornoListaConsultas.sort((Consulta c1, Consulta c2) -> c2.getDataHora().compareTo(c1.getDataHora()));
+        return retornoListaConsultas;
     }
 }
