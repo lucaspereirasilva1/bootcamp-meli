@@ -1,5 +1,7 @@
 package util;
 
+import model.entity.Paciente;
+
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -48,21 +50,21 @@ public class ArquivoUtil {
         try {
             bw.close();
         }catch(IOException e) {
-            System.out.println("deu pau");
+            System.out.println("Nao funcionou");
         }
 
     }
 
-    public List<String> retornaRegistros() throws IOException {
-        List<String> registros = new ArrayList<String>();
+    public List<String[]> retornaRegistros() throws IOException {
+        List<String[]> registros = new ArrayList<>();
         while(true) {
             String linha = br.readLine();
             if(linha==null) {
                 break;
             }
-            registros.add(linha);
+            String[] campos = linha.split(";");
+            registros.add(campos);
         }
         return registros;
     }
-
 }

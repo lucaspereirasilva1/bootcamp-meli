@@ -11,7 +11,7 @@ import java.time.LocalDate;
 @ToString
 public class Paciente {
 
-    @Setter(AccessLevel.NONE)
+    //@Setter(AccessLevel.NONE)
     private int id;
     private String especie;
     private String raca;
@@ -31,5 +31,8 @@ public class Paciente {
         this.proprietario = proprietario;
         this.tipoAnimal = tipoAnimal;
         this.id = id;
+    }
+
+    public Paciente() {
     }
 }

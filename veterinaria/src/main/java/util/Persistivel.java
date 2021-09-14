@@ -9,5 +9,6 @@ public interface Persistivel<T> {
     T obter(String id);
     List<T> listagem();
     void fechar();
+    List<String[]> carregarArquivo();
 
 }

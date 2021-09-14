@@ -18,6 +18,10 @@ public class Proprietario {
     private String endereco;
     private long telefone;
 
+    public Proprietario() {
+
+    }
+
     @Override
     public String toString() {
         Formatador formatador = new Formatador();

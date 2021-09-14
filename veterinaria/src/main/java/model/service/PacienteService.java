@@ -39,4 +39,20 @@ public class PacienteService {
     public void adicionarListaPaciente(Paciente paciente) {
             listaPaciente.add(paciente);
     }
+
+    public List<Paciente> carregarPacienteArquivo() {
+        PacienteDAO pacienteDAO = new PacienteDAO("paciente.txt");
+        List<String[]> lista = pacienteDAO.carregarArquivo();
+
+        List<Paciente> listaPaciente = new ArrayList<>();
+        for (String[] s:lista) {
+            Paciente paciente = new Paciente();
+            Integer id = Integer.valueOf(s[0]);
+            paciente.setId(id);
+            paciente.setNome(s[1]);
+            paciente.setEspecie(s[2]);
+            listaPaciente.add(paciente);
+        }
+        return listaPaciente;
+    }
 }

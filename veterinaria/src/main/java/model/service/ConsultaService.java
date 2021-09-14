@@ -3,7 +3,9 @@ package model.service;
 import model.entity.Consulta;
 import model.entity.Medico;
 import model.entity.Paciente;
+import model.entity.Proprietario;
 import util.ConsultaDAO;
+import util.ProprietarioDAO;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -72,5 +74,22 @@ public class ConsultaService {
                 .collect(Collectors.toList());
         retornoListaConsultas.sort((Consulta c1, Consulta c2) -> c1.getDataHora().compareTo(c2.getDataHora()));
         return retornoListaConsultas;
+    }
+
+    public List<Consulta> carregarConsultaArquivo() {
+        ConsultaDAO consultaDAO = new ConsultaDAO("consulta.txt");
+        List<String[]> lista = consultaDAO.carregarArquivo();
+
+        List<Consulta> listaConsulta = new ArrayList<>();
+        for (String[] s:lista) {
+            Consulta consulta = new Consulta();
+            Integer id = Integer.valueOf(s[0]);
+            consulta.setId(id);
+            consulta.setDiagnostico(s[1]);
+            consulta.setTratamento(s[2]);
+            consulta.setMotivo(s[3]);
+            listaConsulta.add(consulta);
+        }
+        return listaConsulta;
     }
 }

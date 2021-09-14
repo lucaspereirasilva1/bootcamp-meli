@@ -1,4 +1,7 @@
 import model.entity.Consulta;
+import model.entity.Medico;
+import model.entity.Paciente;
+import model.entity.Proprietario;
 import model.service.ConsultaService;
 import model.service.MedicoService;
 import model.service.PacienteService;
@@ -87,44 +90,24 @@ public class Main {
         List<Consulta> listarConsultasPorDia = consultaService.listarConsultasPorDia(dia);
         listarConsultasPorDia.forEach(System.out::println);
 
-//        for (Medico m: medicoService.getListaMedico()) {
-//            String retorno = m.getNome();
-//            int contador = 0;
-//            for (Consulta c: consultaService.getListaConsultas()) {
-//                if(m.getCpf() == c.getMedico().getCpf()) {
-//                    contador++;
-//                }
-//            }
+        //Ler arquivos paciente
+        System.out.println("--------------LerArquivosPaciente--------------");
+        List<Paciente> pacientes = pacienteService.carregarPacienteArquivo();
+        pacientes.forEach(System.out::println);
 
-//            System.out.println(retorno += contador);
+        //Ler arquivos medico
+        System.out.println("--------------LerArquivosMedico--------------");
+        List<Medico> medicos = medicoService.carregarMedicoArquivo();
+        medicos.forEach(System.out::println);
 
-//        for (Consulta c: consultaService.listarTotalConsultasMedicos(consultaService.getListaConsultas())) {
-//
-//        }
+        //Ler arquivos proprietario
+        System.out.println("--------------LerArquivosProprietario--------------");
+        List<Proprietario> proprietarios = proprietarioService.carregarProprietarioArquivo();
+        proprietarios.forEach(System.out::println);
 
-
-
-//        MedicoService medicoService = new MedicoService();
-//        List<Medico> listaMedico = medicoService.criarListaMedico();
-//        medicoService.listarTotalConsultasMedicos(listaMedico);
-//
-//        for (Medico m:
-//                listaMedico) {
-//            System.out.println(medico.getNome() + medico.consulta.size());
-//        }
-
-
-//        Paciente paciente = new Paciente();
-//        paciente.cadastarPaciente("cachorro", "vira-lata", "preto", dataNascimento, "rex", proprietario, "domestico ");
-//        System.out.println(paciente);
-
-//        Consulta consulta = new Consulta();
-//        consulta.cadastrarConsulta(dataHora, "rotina", "paciente sem problemas", "nenhum", medico, paciente);
-//        System.out.println(consulta);
-
-//        List<Consulta> listaConsulta = new ArrayList<>();
-//        listaConsulta.add(consulta);
-
-//        consulta.listarConsultasPorPacientes();
+        //Ler arquivos consulta
+        System.out.println("--------------LerArquivosConsulta--------------");
+        List<Consulta> consultas = consultaService.carregarConsultaArquivo();
+        consultas.forEach(System.out::println);
     }
 }

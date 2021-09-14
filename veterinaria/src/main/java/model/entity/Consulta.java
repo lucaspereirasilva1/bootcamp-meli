@@ -17,8 +17,10 @@ public class Consulta {
     private String tratamento;
     private Medico medico;
     private Paciente paciente;
-    @Setter(AccessLevel.NONE)
     private int id;
+
+    public Consulta() {
+    }
 
     public Consulta(int id, LocalDateTime dataHora, String motivo, String diagnostico, String tratamento, Medico medico
             , Paciente paciente) {

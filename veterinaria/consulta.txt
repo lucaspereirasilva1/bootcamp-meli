@@ -1,4 +1,4 @@
-0;rex;ed;exames
-1;toddy;rafael;exames
-2;toddy;ed;exames
-3;rex;ed;teste
+0;colesterol alto;remedio;exames
+1;colesterol alto;remedio;exames
+2;colesterol alto;remedio;exames
+3;suspeita covid;vacina;teste

@@ -1,4 +1,2 @@
 0;32112345678;ed;animais domesticos
 1;45689087654;rafael;animais domesticos
-0;32112345678;ed;animais domesticos
-1;45689087654;rafael;animais domesticos

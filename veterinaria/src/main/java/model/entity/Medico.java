@@ -12,10 +12,12 @@ public class Medico {
     private Long cpf;
     private String nome;
     private String sobreNome;
-    @Setter(AccessLevel.NONE)
+    //@Setter(AccessLevel.NONE)
     private int numeroRegistro;
     private String especialidade;
 
+    public Medico() {
+    }
 
     public Medico(int numeroRegistro, Long cpf, String nome, String sobreNome, String especialidade) {
         this.cpf = cpf;

@@ -18,7 +18,7 @@ public class ConsultaDAO implements Persistivel<Consulta>{
 
     @Override
     public void salva(Consulta consulta) {
-        String registro = consulta.getId() + ";" + consulta.getPaciente().getNome() + ";" + consulta.getMedico().getNome() + ";" + consulta.getMotivo();
+        String registro = consulta.getId() + ";" + consulta.getDiagnostico() + ";" + consulta.getTratamento() + ";" + consulta.getMotivo();
         try {
             arquivoUtil.escreve(registro);
             arquivoUtil.fechaArquivo();
@@ -45,5 +45,15 @@ public class ConsultaDAO implements Persistivel<Consulta>{
     @Override
     public void fechar() {
 
+    }
+
+    @Override
+    public List<String[]> carregarArquivo() {
+        try {
+            return arquivoUtil.retornaRegistros();
+        } catch (IOException e) {
+            e.printStackTrace();
+            return null;
+        }
     }
 }

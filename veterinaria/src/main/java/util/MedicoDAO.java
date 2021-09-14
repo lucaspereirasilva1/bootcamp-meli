@@ -46,4 +46,14 @@ public class MedicoDAO implements Persistivel<Medico>{
     public void fechar() {
         arquivoUtil.fechaArquivo();
     }
+
+    @Override
+    public List<String[]> carregarArquivo() {
+        try {
+            return arquivoUtil.retornaRegistros();
+        } catch (IOException e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
 }

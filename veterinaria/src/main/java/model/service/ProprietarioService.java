@@ -1,6 +1,8 @@
 package model.service;
 
+import model.entity.Medico;
 import model.entity.Proprietario;
+import util.MedicoDAO;
 import util.ProprietarioDAO;
 
 import java.time.LocalDate;
@@ -32,4 +34,19 @@ public class ProprietarioService {
         listaProprietario.add(proprietario);
     }
 
+    public List<Proprietario> carregarProprietarioArquivo() {
+        ProprietarioDAO proprietarioDAO = new ProprietarioDAO("proprietario.txt");
+        List<String[]> lista = proprietarioDAO.carregarArquivo();
+
+        List<Proprietario> listaProprietario = new ArrayList<>();
+        for (String[] s:lista) {
+            Proprietario proprietario = new Proprietario();
+            Long cpf = Long.valueOf(s[0]);
+            proprietario.setCpf(cpf);
+            proprietario.setNome(s[1]);
+            proprietario.setSobreNome(s[2]);
+            listaProprietario.add(proprietario);
+        }
+        return listaProprietario;
+    }
 }
