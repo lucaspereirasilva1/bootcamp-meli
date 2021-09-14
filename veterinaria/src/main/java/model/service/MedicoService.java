@@ -1,10 +1,9 @@
 package model.service;
 
-import model.entity.Consulta;
 import model.entity.Medico;
+import util.MedicoDAO;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 public class MedicoService {
@@ -20,15 +19,14 @@ public class MedicoService {
         return medico;
     }
 
-    public void cadastrarMedicos(int cpf, String nome, String sobreNome, String especialidade) {
+    public void cadastrarMedicos(long cpf, String nome, String sobreNome, String especialidade) {
         medico = new Medico(listaMedico.size(), cpf, nome, sobreNome, especialidade);
+        MedicoDAO medicoDAO = new MedicoDAO("medico.txt");
+        medicoDAO.salva(medico);
+        medicoDAO.fechar();
     }
 
-    public String exibirMedico() {
-        return medico.toString();
-    }
-
-    public void criarListaMedico(Medico medico) {
+    public void adicionarListaMedico(Medico medico) {
         listaMedico.add(medico);
     }
 }
