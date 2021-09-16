@@ -1,6 +1,7 @@
-import model.entity.Agenda;
-import model.entity.Pessoa;
-import model.service.AgendaService;
+package atividademanha;
+
+import atividademanha.model.entity.Pessoa;
+import atividademanha.model.service.AgendaService;
 
 public class Main {
 
@@ -8,7 +9,7 @@ public class Main {
 
         int posicao = 0;
 
-        //Criando Objeto model.entity.Pessoa e model.entity.Agenda
+        //Criando Objeto atividademanha.model.entity.service.entity.Pessoa e atividademanha.model.entity.service.entity.Agenda
         Pessoa pessoa = new Pessoa("lucas", "rua zero", "99998888", 18, 1.75);
         Pessoa pessoa2 = new Pessoa("jessica", "rua dois", "88887777", 20, 1.50);
         Pessoa pessoa3 = new Pessoa("ed", "rua tres", "66665555", 25, 2.00);

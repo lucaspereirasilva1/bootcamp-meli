@@ -1,4 +1,4 @@
-package model.entity;
+package atividademanha.model.entity;
 
 import lombok.Data;
 import lombok.ToString;

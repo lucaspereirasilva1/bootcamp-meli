@@ -1,8 +1,8 @@
-package model.service;
+package atividademanha.model.service;
 
 import lombok.Data;
-import model.entity.Agenda;
-import model.entity.Pessoa;
+import atividademanha.model.entity.Agenda;
+import atividademanha.model.entity.Pessoa;
 
 import java.util.ArrayList;
 import java.util.Comparator;
